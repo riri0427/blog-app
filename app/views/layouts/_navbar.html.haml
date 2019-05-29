@@ -1,11 +1,15 @@
 %nav.blue.accent-1
   .nav-wrapper
-    %a.brand-logo{:href => "#"} Blog
+    %a.brand-logo{:href => "/"} Blog
     %ul#nav-mobile.right.hide-on-med-and-down
       %li
         = link_to new_user_session_path do
           SignIn
       %li
-        %a{:href => "badges.html"} SignOut
+        = link_to "SignOut", destroy_user_session_path, method: :delete
       %li
-        %a{:href => "collapsible.html"} New
+        = link_to new_user_registration_path do
+          SignUp
+      %li
+        = link_to "#" do
+          New
