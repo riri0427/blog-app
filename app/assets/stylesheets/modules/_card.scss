@@ -1,0 +1,11 @@
+.row {
+  margin-top: 50px;
+  .col.s12.m6 {
+    width: 100%;
+    .card {
+      width: calc(100% - 30%);
+      min-width: 700px;
+      margin: 0 auto;
+    }
+  }
+}
