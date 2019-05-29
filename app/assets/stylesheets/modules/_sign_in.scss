@@ -1,0 +1,23 @@
+.cover {
+  width: calc(100% - 50%);
+  margin: 0 auto;
+  a {
+    display: block;
+    margin-left: 20px;
+  }
+}
+
+.h2 {
+  color: #82b1ff;
+  font-size: 40px;
+  margin: 20px 0 50px 20px;
+}
+
+.field {
+  margin: 0 20px;
+}
+
+.actions {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}

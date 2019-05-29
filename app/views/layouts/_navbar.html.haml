@@ -3,7 +3,8 @@
     %a.brand-logo{:href => "#"} Blog
     %ul#nav-mobile.right.hide-on-med-and-down
       %li
-        %a{:href => "sass.html"} SignIn
+        = link_to new_user_session_path do
+          SignIn
       %li
         %a{:href => "badges.html"} SignOut
       %li
