@@ -5,5 +5,12 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    @article = Article.create(title: article_params[:title], text: article_params[:text], user_id: current_user.id)
+  end
+
+  private
+
+  def article_params
+    params.permit(title:, :text)
   end
 end
