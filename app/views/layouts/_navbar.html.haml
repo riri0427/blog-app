@@ -2,14 +2,16 @@
   .nav-wrapper
     %a.brand-logo{:href => "/"} Blog
     %ul#nav-mobile.right.hide-on-med-and-down
-      %li
-        = link_to new_user_session_path do
-          SignIn
-      %li
-        = link_to "SignOut", destroy_user_session_path, method: :delete
-      %li
-        = link_to new_user_registration_path do
-          SignUp
-      %li
-        = link_to new_article_path do
-          New
+      - if user_signed_in?
+        %li
+          = link_to "SignOut", destroy_user_session_path, method: :delete
+        %li
+          = link_to new_article_path do
+            New
+      - else
+        %li
+          = link_to new_user_session_path do
+            SignIn
+        %li
+          = link_to new_user_registration_path do
+            SignUp

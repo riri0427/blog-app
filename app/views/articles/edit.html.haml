@@ -1,0 +1,15 @@
+= render "layouts/navbar"
+
+.cover
+  %h2.h2 EDIT
+  = form_with(model: @article, url: "/articles/#{@article.id}", local: true, method: :patch) do |f|
+    .field
+      = f.label :Title
+      -# = f.text_field :_method, type: "hidden", value: "patch"
+      = f.text_field :title, id: "article_title", class: "validate", placeholder: "text", value: "#{@article.title}"
+    .field
+      = f.label :Text, for: "article_text"
+      -# = f.text_field :_method, type: "hidden", value: "patch"
+      = f. text_area :text, id: "article_text", class: "materialize-textarea", placeholder: "text", value: "#{@article.text}"
+    .actions
+      = f.button :UPDATE, class: ".waves-effect waves-light btn blue accent-1"

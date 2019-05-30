@@ -2,4 +2,6 @@
 
 .card-wrapper
 
-  = render 'layouts/card'
+  - @articles.each do |article|
+    = render partial: "layouts/card", locals: { article: article}
+  -# = render 'layouts/card'
