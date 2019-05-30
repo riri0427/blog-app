@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @articles = Article.includes(:user).order("created_at DESC")
@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
   def update
     article = Article.find(params[:id])
     if article.user_id == current_user.id
-      article.update(article_params)
+      article.update(article_params_update)
     end
   end
 
@@ -35,6 +35,10 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
+    params.permit(:title, :text)
+  end
+
+  def article_params_update
     params.require(:article).permit(:title, :text)
   end
 end

@@ -8,9 +8,13 @@
         %p
           = simple_format(@article.text)
       .card-action
-        = link_to "articles/#{@article.id}/edit" do
-          .waves-effect.waves-light.btn.blue.accent-1 EDIT
-        = link_to "articles/#{@article.id}", method: :delete do
-          .waves-effect.waves-light.btn.blue.accent-1 DELETE
-        = link_to "/" do
-          .waves-effect.waves-light.btn.blue.accent-1 TOP PAGE
+        - if user_signed_in? && (@article.user_id == current_user.id)
+          = link_to "articles/#{@article.id}/edit" do
+            .waves-effect.waves-light.btn.blue.accent-1 EDIT
+          = link_to "articles/#{@article.id}", method: :delete do
+            .waves-effect.waves-light.btn.blue.accent-1 DELETE
+          = link_to "/" do
+            .waves-effect.waves-light.btn.blue.accent-1 TOP PAGE
+        - else
+          = link_to "/" do
+            .waves-effect.waves-light.btn.blue.accent-1 TOP PAGE

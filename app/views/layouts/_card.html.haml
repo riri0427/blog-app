@@ -6,9 +6,13 @@
         %p
           = simple_format(article.text)
       .card-action
-        = link_to article_path(article.id) do
-          .waves-effect.waves-light.btn.blue.accent-1 SHOW
-        = link_to "articles/#{article.id}/edit" do
-          .waves-effect.waves-light.btn.blue.accent-1 EDIT
-        = link_to "articles/#{article.id}", method: :delete do
-          .waves-effect.waves-light.btn.blue.accent-1 DELETE
+        - if user_signed_in? && (article.user_id == current_user.id)
+          = link_to article_path(article.id) do
+            .waves-effect.waves-light.btn.blue.accent-1 SHOW
+          = link_to "articles/#{article.id}/edit" do
+            .waves-effect.waves-light.btn.blue.accent-1 EDIT
+          = link_to "articles/#{article.id}", method: :delete do
+            .waves-effect.waves-light.btn.blue.accent-1 DELETE
+        - else
+          = link_to article_path(article.id) do
+            .waves-effect.waves-light.btn.blue.accent-1 SHOW
