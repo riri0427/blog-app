@@ -1,0 +1,15 @@
+= render "layouts/navbar"
+
+.cover
+  %h2.h2 Post
+  = form_with(model: @article, url: "/articles", local: true) do |f|
+    .row
+      .input-field.col.s6
+        = f.label :Title, for: "article_title"
+        = f.text_field :title, id: "article_title", class: "validate"
+    .row
+      .input-field.col.s12
+        = f.label :Text, for: "article_text"
+        = f. text_area :text, id: "article_text", class: "materialize-textarea"
+    .actions
+      = f.button :SENT, class: ".waves-effect waves-light btn blue accent-1"
