@@ -1,0 +1,16 @@
+= render "layouts/navbar"
+
+.row
+  .col.s12.m6
+    .card.grey.lighten-3
+      .card-content.black-text
+        %span.card-title= @article.title
+        %p
+          = simple_format(@article.text)
+      .card-action
+        = link_to "articles/#{@article.id}/edit" do
+          .waves-effect.waves-light.btn.blue.accent-1 EDIT
+        = link_to "articles/#{@article.id}", method: :delete do
+          .waves-effect.waves-light.btn.blue.accent-1 DELETE
+        = link_to "/" do
+          .waves-effect.waves-light.btn.blue.accent-1 TOP PAGE

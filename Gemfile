@@ -67,3 +67,5 @@ gem 'materialize-sass', '~> 1.0.0'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
+
+gem 'pry-rails'
