@@ -3,14 +3,16 @@
 .cover
   %h2.h2 Sign in
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
-      = f.label :email
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
-    .field
-      = f.label :password
-      %br/
-      = f.password_field :password, autocomplete: "current-password"
+    .row
+      .input-field.col.s12
+        = f.label :email, for: "user_email"
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", id: "user_email"
+    .row
+      .input-field.col.s12
+        = f.label :password
+        %br/
+        = f.password_field :password, autocomplete: "current-password"
     .actions
       = f.submit "Sign in", {class: ".waves-effect waves-light btn blue accent-1"}
   = render "devise/shared/links"
